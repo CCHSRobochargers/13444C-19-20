@@ -1,3 +1,36 @@
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// LDM                  motor         11              
+// RDM                  motor         20              
+// LLM                  motor         2               
+// RLM                  motor         9               
+// RFM                  motor         8               
+// LFM                  motor         3               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// LDM                  motor         11              
+// RDM                  motor         20              
+// LLM                  motor         2               
+// RLM                  motor         9               
+// RFM                  motor         8               
+// LFM                  motor         3               
+// ---- END VEXCODE CONFIGURED DEVICES ----
+// ---- START VEXCODE CONFIGURED DEVICES ----
+// Robot Configuration:
+// [Name]               [Type]        [Port(s)]
+// Controller1          controller                    
+// LDM                  motor         11              
+// RDM                  motor         20              
+// LLM                  motor         2               
+// RLM                  motor         9               
+// RFM                  motor         8               
+// LFM                  motor         3               
+// ---- END VEXCODE CONFIGURED DEVICES ----
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
@@ -46,7 +79,7 @@ motor_group FlapperMotors = motor_group(LFM, RFM);
     RDM.setPosition(0, turns);
   }
 
-  double turndiameter = 16.0625; //this is the approximate distance between the wheels, which is the diameter of the circle around which the motors will turn
+  double turndiameter = 16.25; //this is the approximate distance between the wheels, which is the diameter of the circle around which the motors will turn
   double turncircumference = turndiameter * 3.1415; //this is the approximate circumference of the circle the robot turns around
   void turn (int degreestoturn) {
     double rotations = degreestoturn / 360 * turncircumference / wheelcircumference; //maths to convert the amount of degrees we want to turn to a value of rotations for the motors
@@ -92,7 +125,7 @@ void autonomous(void) {
 
   drive(30);
 
-  drive(-12);
+  drive(-30); 
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
@@ -138,6 +171,7 @@ void usercontrol(void) {
              vex::velocityUnits::pct);
     }         
 
+    LiftMotors.setVelocity(50, vex::velocityUnits::pct);
     if (Controller1.ButtonR1.pressing()) {
       LiftMotors.spin(forward);
     } else if (Controller1.ButtonR2.pressing()) {
@@ -147,8 +181,10 @@ void usercontrol(void) {
     }
 
     if (Controller1.ButtonL1.pressing()) {
+      FlapperMotors.setVelocity(50, vex::velocityUnits::pct);
       FlapperMotors.spin(forward);
     } else if (Controller1.ButtonL2.pressing()) {
+      FlapperMotors.setVelocity(50, vex::velocityUnits::pct);
       FlapperMotors.spin(reverse);
     } else {
       FlapperMotors.stop();
@@ -175,3 +211,5 @@ int main() {
     wait(100, msec);
   }
 }
+//Congratulations for reading all of the program!
+//Why you would do this to yourself, I cannot fathom.

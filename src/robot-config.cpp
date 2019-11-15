@@ -13,8 +13,8 @@ motor LDM = motor(PORT11, ratio18_1, false);
 motor RDM = motor(PORT20, ratio18_1, true);
 motor LLM = motor(PORT2, ratio18_1, true);
 motor RLM = motor(PORT9, ratio18_1, false);
-motor LFM = motor(PORT3, ratio18_1, true);
 motor RFM = motor(PORT8, ratio18_1, false);
+motor LFM = motor(PORT3, ratio18_1, true);
 
 // VEXcode generated functions
 
